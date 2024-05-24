@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <nav>
-          <h1>Recipes for Ninja</h1>
+          <h1>Easy recipes to make</h1>
         </nav>
         {children}
       </body>
