@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { ModeToggle } from "@/components/ui/mode-toggle";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -17,10 +20,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <nav>
-          <h1>Easy recipes to make</h1>
-        </nav>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <nav className="flex flex-row justify-between">
+            <h1>Easy recipes to make</h1>
+            <ModeToggle />
+          </nav>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
